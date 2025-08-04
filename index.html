@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Cards Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>Welcome</h2>
+            <p>This is a demonstration of a card-based layout with a neon glow effect.</p>
+        </div>
+
+        <div class="card">
+            <h2>Update Script</h2>
+            <p>A script to update all your Winget packages.</p>
+            <div class="code-container">
+                <pre class="code-block" id="code-block"><code>@echo off
+setlocal
+:: UpdateAll.bat
+:: ... (rest of the script)
+</code></pre>
+                <button id="see-more-btn" class="see-more-btn">See More</button>
+            </div>
+        </div>
+    </div>
+
+    <button id="theme-toggle" class="theme-btn">
+        <!-- Icons will be loaded here by JavaScript -->
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

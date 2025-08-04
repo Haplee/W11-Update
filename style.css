@@ -1,0 +1,150 @@
+/* General styles */
+:root {
+    --bg-color-light: #e0e0e0;
+    --text-color-light: #1a1a1a;
+    --card-bg-light: #f0f0f0;
+    --neon-color: #00ff7f; /* SpringGreen */
+    --neon-glow: 0 0 5px var(--neon-color), 0 0 10px var(--neon-color), 0 0 20px #00e673, 0 0 30px #00cc66;
+
+    --bg-color-dark: #121212;
+    --text-color-dark: #e0e0e0;
+    --card-bg-dark: #1f1f1f;
+
+    --transition-speed: 0.4s;
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+/* Light theme (default) */
+body {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+}
+
+/* Dark theme */
+body.dark-mode {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 600px;
+    width: 100%;
+}
+
+.card {
+    border: 2px solid var(--neon-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    position: relative;
+    transition: all var(--transition-speed) ease;
+    box-shadow: var(--neon-glow);
+}
+
+body.light-mode .card {
+    background-color: var(--card-bg-light);
+}
+
+body.dark-mode .card {
+    background-color: var(--card-bg-dark);
+}
+
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.code-container {
+    position: relative;
+}
+
+.code-block {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 1rem;
+    overflow: hidden;
+    height: 100px; /* Collapsed height */
+    transition: height 0.5s ease-in-out;
+}
+
+.code-block.expanded {
+    height: 300px; /* Expanded height */
+    overflow-y: auto;
+}
+
+.see-more-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: none;
+    border: 1px solid var(--neon-color);
+    color: var(--neon-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+}
+
+.see-more-btn:hover {
+    background-color: var(--neon-color);
+    color: var(--card-bg-dark);
+    box-shadow: 0 0 10px var(--neon-color);
+}
+
+
+/* Theme toggle button */
+.theme-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: 2px solid;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all var(--transition-speed) ease;
+}
+
+body.light-mode .theme-btn {
+    color: var(--text-color-light);
+    border-color: var(--text-color-light);
+}
+
+body.dark-mode .theme-btn {
+    color: var(--text-color-dark);
+    border-color: var(--text-color-dark);
+}
+
+.theme-btn:hover {
+    transform: scale(1.1) rotate(15deg);
+    color: var(--neon-color);
+    border-color: var(--neon-color);
+}
+
+.theme-btn svg {
+    width: 24px;
+    height: 24px;
+}
