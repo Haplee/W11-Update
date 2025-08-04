@@ -116,4 +116,4 @@ setlocal
         localStorage.setItem('theme', theme);
         setIcon();
     });
-});
+

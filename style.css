@@ -9,7 +9,6 @@
     --bg-color-dark: #121212;
     --text-color-dark: #e0e0e0;
     --card-bg-dark: #1f1f1f;
-
     --transition-speed: 0.4s;
 }
 
@@ -110,13 +109,13 @@ body.dark-mode .card {
     box-shadow: 0 0 10px var(--neon-color);
 }
 
-
 /* Theme toggle button */
 .theme-btn {
     position: fixed;
     top: 20px;
     right: 20px;
     background: none;
+
     border: 2px solid;
     border-radius: 50%;
     cursor: pointer;
@@ -127,6 +126,7 @@ body.dark-mode .card {
     align-items: center;
     transition: all var(--transition-speed) ease;
 }
+
 
 body.light-mode .theme-btn {
     color: var(--text-color-light);
@@ -142,9 +142,35 @@ body.dark-mode .theme-btn {
     transform: scale(1.1) rotate(15deg);
     color: var(--neon-color);
     border-color: var(--neon-color);
+
 }
 
 .theme-btn svg {
     width: 24px;
     height: 24px;
+    fill: var(--text-color-light);
+    transition: fill var(--transition-speed) ease;
+}
+
+body.dark-mode .theme-btn svg {
+    fill: var(--text-color-dark);
+}
+
+/* Layout and other styles */
+header, main, footer {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+main {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s forwards var(--transition-speed);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
